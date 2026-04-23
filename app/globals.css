@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
+/* =========================
+   DESIGN TOKENS
+========================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Theme */
+  --background: #f8fafc;      /* soft gray */
+  --foreground: #0f172a;      /* slate-900 */
+
+  --card: #ffffff;
+  --card-border: #e5e7eb;
+
+  --muted: #6b7280;           /* gray-500 */
+  --accent: #2563eb;          /* blue-600 */
+  --accent-hover: #1d4ed8;    /* blue-700 */
+
+  --success: #16a34a;
+  --danger: #dc2626;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #e5e7eb;
+
+    --card: #111827;
+    --card-border: #1f2937;
+
+    --muted: #9ca3af;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+
+    --success: #22c55e;
+    --danger: #ef4444;
   }
 }
 
+/* =========================
+   BASE STYLES
+========================= */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   REUSABLE UI UTILITIES
+========================= */
+
+/* Card */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+}
+
+/* Status badges */
+.badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-danger {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Table improvements */
+.table-container {
+  background-color: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.table-header {
+  background-color: #f9fafb;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table-row {
+  border-top: 1px solid var(--card-border);
+  transition: background 0.2s ease;
+}
+
+.table-row:hover {
+  background-color: #f9fafb;
+}
+
+/* Smooth transitions everywhere */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
