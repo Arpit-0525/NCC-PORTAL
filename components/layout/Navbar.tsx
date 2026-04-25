@@ -1,13 +1,38 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
+  const { user, setRole } = useAuth();
   return (
     <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 sticky top-0 z-10">
 
       {/* Left Section */}
       <div className="flex items-center gap-4">
+        <div className="flex gap-2 mr-2">
+  <button
+    onClick={() => setRole("admin")}
+    className={`text-xs px-2 py-1 rounded ${
+      user.role === "admin"
+        ? "bg-blue-600 text-white"
+        : "bg-gray-200 text-gray-700"
+    }`}
+  >
+    Admin
+  </button>
+
+  <button
+    onClick={() => setRole("cadet")}
+    className={`text-xs px-2 py-1 rounded ${
+      user.role === "cadet"
+        ? "bg-blue-600 text-white"
+        : "bg-gray-200 text-gray-700"
+    }`}
+  >
+    Cadet
+  </button>
+</div>
 
         {/* Page Title (optional dynamic later) */}
         <h2 className="text-sm font-semibold text-gray-800">

@@ -4,8 +4,11 @@ import { cadets } from "@/data/cadets";
 import { maskAadhaar, maskBank } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function CadetsPage() {
+  const { user } = useAuth();
+  const isAdmin = user.role === "admin";
   const router = useRouter();
   const [query, setQuery] = useState("");
 
@@ -27,9 +30,11 @@ export default function CadetsPage() {
           </p>
         </div>
 
-        <button className="btn btn-primary">
-          + Add Cadet
-        </button>
+        {isAdmin && (
+          <button className="btn btn-primary">
+            + Add Cadet
+          </button>
+        )}
       </div>
 
       {/* Controls */}

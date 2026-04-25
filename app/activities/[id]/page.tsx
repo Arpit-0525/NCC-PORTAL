@@ -3,8 +3,11 @@
 import { useState } from "react";
 import { activities } from "@/data/activities";
 import { cadets } from "@/data/cadets";
+import { useAuth } from "@/context/AuthContext";
 
 export default function ActivityDetail({ params }: { params: { id: string } }) {
+  const { user } = useAuth();
+  const isAdmin = user.role === "admin";
   const activity = activities.find((a) => a.id === params.id);
 
   if (!activity) return <div className="p-6">Activity not found</div>;
@@ -74,17 +77,19 @@ export default function ActivityDetail({ params }: { params: { id: string } }) {
       {/* Controls */}
       <div className="flex flex-wrap gap-3">
 
-        <button onClick={markAll} className="btn btn-primary">
-          Mark All Present
-        </button>
-
-        <button onClick={clearAll} className="btn btn-secondary">
-          Clear All
-        </button>
-
-        <button className="btn btn-primary">
-          Save Attendance
-        </button>
+        {isAdmin && (
+          <>
+            <button onClick={markAll} className="btn btn-primary">
+              Mark All Present
+            </button>
+            <button onClick={clearAll} className="btn btn-secondary">
+              Clear All
+            </button>
+            <button className="btn btn-primary">
+              Save Attendance
+            </button>
+          </>
+        )}
 
       </div>
 
@@ -114,12 +119,11 @@ export default function ActivityDetail({ params }: { params: { id: string } }) {
           return (
             <div
               key={cadet.id}
-              onClick={() => toggleAttendance(cadet.id)}
-              className={`card cursor-pointer transition-all ${
-                isPresent
-                  ? "border-green-500 bg-green-50"
-                  : "hover:shadow-md"
-              }`}
+              onClick={() => isAdmin && toggleAttendance(cadet.id)}
+              className={`card cursor-pointer transition-all ${isPresent
+                ? "border-green-500 bg-green-50"
+                : "hover:shadow-md"
+                }`}
             >
               <p className="font-medium text-gray-900">
                 {cadet.name}
@@ -131,9 +135,8 @@ export default function ActivityDetail({ params }: { params: { id: string } }) {
 
               <div className="mt-3">
                 <span
-                  className={`badge ${
-                    isPresent ? "badge-success" : "badge-danger"
-                  }`}
+                  className={`badge ${isPresent ? "badge-success" : "badge-danger"
+                    }`}
                 >
                   {isPresent ? "Present" : "Absent"}
                 </span>

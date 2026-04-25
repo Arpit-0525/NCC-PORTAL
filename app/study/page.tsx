@@ -5,8 +5,11 @@ import UploadModal from "@/components/study/UploadModal";
 import { studyMaterials } from "@/data/study";
 import { StudyMaterial } from "@/types/study";
 import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function StudyPage() {
+  const { user } = useAuth(); 
+  const isAdmin = user.role === "admin";
   const [selected, setSelected] = useState<StudyMaterial | null>(null);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [open, setOpen] = useState(false);
@@ -40,9 +43,11 @@ export default function StudyPage() {
           </p>
         </div>
 
-        <button onClick={() => setOpen(true)} className="btn btn-primary">
+        {isAdmin && (
+          <button onClick={() => setOpen(true)} className="btn btn-primary">
             + Upload Material
-        </button>
+          </button>
+        )}
       </div>
 
       {/* Controls */}

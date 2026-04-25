@@ -3,9 +3,12 @@
 import { activities } from "@/data/activities";
 import { cadets } from "@/data/cadets";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function ActivitiesPage() {
   const router = useRouter();
+  const { user } = useAuth();
+  const isAdmin = user.role === "admin";
 
   return (
     <div className="p-6 space-y-6">
@@ -21,9 +24,11 @@ export default function ActivitiesPage() {
           </p>
         </div>
 
-        <button className="btn btn-primary">
-          + Create Activity
-        </button>
+        {isAdmin && (
+          <button className="btn btn-primary">
+            + Create Activity
+          </button>
+        )}
       </div>
 
       {/* Activity List */}
