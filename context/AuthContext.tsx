@@ -1,11 +1,17 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
-import { User } from "@/types/auth";
+import { createContext, useContext, useEffect, useState } from "react";
+
+type Role = "admin" | "cadet";
+
+type User = {
+  name: string;
+  role: Role;
+};
 
 type AuthContextType = {
   user: User;
-  setRole: (role: "admin" | "cadet") => void;
+  setRole: (role: Role) => void;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -16,7 +22,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     role: "admin",
   });
 
-  function setRole(role: "admin" | "cadet") {
+  // 🔁 Load role from localStorage on first render
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role") as Role | null;
+
+    if (storedRole) {
+      setUser((prev) => ({
+        ...prev,
+        role: storedRole,
+      }));
+    }
+  }, []);
+
+  // 💾 Save role to localStorage whenever it changes
+  function setRole(role: Role) {
+    localStorage.setItem("role", role);
+
     setUser((prev) => ({
       ...prev,
       role,

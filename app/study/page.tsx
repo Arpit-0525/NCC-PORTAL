@@ -6,6 +6,7 @@ import { studyMaterials } from "@/data/study";
 import { StudyMaterial } from "@/types/study";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
+import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 export default function StudyPage() {
   const { user } = useAuth(); 
@@ -131,6 +132,7 @@ export default function StudyPage() {
       )}
       <UploadModal isOpen={open} onClose={() => setOpen(false)} />
       <PreviewModal isOpen={previewOpen}onClose={() => setPreviewOpen(false)} item={selected}/>
+
 
     </div>
     

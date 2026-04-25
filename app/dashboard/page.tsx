@@ -21,43 +21,49 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {/* Card */}
-          <div className="card hover:shadow-md transition-all duration-200">
+          <div className="bg-linear-to-r from-blue-900 to-blue-800 rounded-2xl p-5 shadow-sm">
             <div className="flex justify-between items-start">
-              <p className="text-sm text-gray-500 font-medium">
+              <p className="text-sm text-gray-300 font-medium">
                 Total Cadets
               </p>
-              <span className="badge badge-success">+5%</span>
+              <span className="bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">
+                +5%
+              </span>
             </div>
 
-            <h2 className="text-3xl font-semibold text-gray-900 mt-3">
+            <h2 className="text-3xl font-semibold text-white mt-3">
               120
             </h2>
           </div>
 
           {/* Card */}
-          <div className="card hover:shadow-md transition-all duration-200">
+          <div className="bg-linear-to-r from-blue-900 to-blue-800 rounded-2xl p-5 shadow-sm">
             <div className="flex justify-between items-start">
-              <p className="text-sm text-gray-500 font-medium">
+              <p className="text-sm text-gray-300 font-medium">
                 Upcoming Events
               </p>
-              <span className="badge badge-success">Active</span>
+              <span className="bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">
+                Active
+              </span>
             </div>
 
-            <h2 className="text-3xl font-semibold text-gray-900 mt-3">
+            <h2 className="text-3xl font-semibold text-white mt-3">
               5
             </h2>
           </div>
 
           {/* Card */}
-          <div className="card hover:shadow-md transition-all duration-200">
+          <div className="bg-linear-to-r from-blue-900 to-blue-800 rounded-2xl p-5 shadow-sm">
             <div className="flex justify-between items-start">
-              <p className="text-sm text-gray-500 font-medium">
+              <p className="text-sm text-gray-300 font-medium">
                 Attendance
               </p>
-              <span className="badge badge-success">Good</span>
+              <span className="bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">
+                Good
+              </span>
             </div>
 
-            <h2 className="text-3xl font-semibold text-gray-900 mt-3">
+            <h2 className="text-3xl font-semibold text-white mt-3">
               87%
             </h2>
           </div>
@@ -65,7 +71,8 @@ export default function DashboardPage() {
         </div>
 
         {/* Recent Activity */}
-        <div className="card">
+        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-semibold text-gray-900">
               Recent Activity

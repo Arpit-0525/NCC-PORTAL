@@ -7,9 +7,10 @@ import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 
 export default function CadetsPage() {
+  const router = useRouter();
   const { user } = useAuth();
   const isAdmin = user.role === "admin";
-  const router = useRouter();
+
   const [query, setQuery] = useState("");
 
   const filteredCadets = cadets.filter((c) =>
@@ -17,7 +18,7 @@ export default function CadetsPage() {
   );
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
 
       {/* Header */}
       <div className="flex justify-between items-center">
@@ -39,28 +40,26 @@ export default function CadetsPage() {
 
       {/* Controls */}
       <div className="flex items-center justify-between gap-4">
-
         <input
           type="text"
           placeholder="Search cadets..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-72 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-72 border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-600">
           Total: {filteredCadets.length}
         </div>
-
       </div>
 
       {/* Table */}
-      <div className="table-container">
+      <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
 
         <table className="min-w-full text-sm">
 
           {/* Header */}
-          <thead className="table-header">
+          <thead className="bg-gray-100 text-gray-700 uppercase text-xs tracking-wide">
             <tr>
               <th className="p-3 text-left">Name</th>
               <th className="p-3 text-left">Parent</th>
@@ -77,7 +76,7 @@ export default function CadetsPage() {
               <tr
                 key={cadet.id}
                 onClick={() => router.push(`/cadets/${cadet.id}`)}
-                className="table-row cursor-pointer"
+                className="border-t hover:bg-gray-50 cursor-pointer transition"
               >
                 <td className="p-3 font-medium text-gray-900">
                   {cadet.name}
@@ -92,7 +91,7 @@ export default function CadetsPage() {
                 </td>
 
                 <td className="p-3">
-                  <span className="badge badge-success">
+                  <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">
                     {cadet.bloodGroup}
                   </span>
                 </td>
@@ -116,7 +115,6 @@ export default function CadetsPage() {
             No cadets found
           </div>
         )}
-
       </div>
 
     </div>

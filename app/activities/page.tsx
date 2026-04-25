@@ -11,7 +11,7 @@ export default function ActivitiesPage() {
   const isAdmin = user.role === "admin";
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
 
       {/* Header */}
       <div className="flex justify-between items-center">
@@ -44,12 +44,12 @@ export default function ActivitiesPage() {
             <div
               key={activity.id}
               onClick={() => router.push(`/activities/${activity.id}`)}
-              className="card cursor-pointer hover:shadow-md transition-all duration-200"
+              className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition cursor-pointer"
             >
 
+              {/* Top Section */}
               <div className="flex justify-between items-start">
 
-                {/* Left */}
                 <div>
                   <h2 className="text-lg font-semibold text-gray-900">
                     {activity.title}
@@ -60,13 +60,12 @@ export default function ActivitiesPage() {
                   </p>
                 </div>
 
-                {/* Status Badge */}
-                <span className="badge badge-success">
+                <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">
                   Active
                 </span>
               </div>
 
-              {/* Attendance Section */}
+              {/* Attendance */}
               <div className="mt-4">
 
                 <div className="flex justify-between text-sm mb-1">
@@ -94,7 +93,7 @@ export default function ActivitiesPage() {
 
         {/* Empty State */}
         {activities.length === 0 && (
-          <div className="card text-center text-gray-500 text-sm">
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 text-center text-gray-500 text-sm">
             No activities found
           </div>
         )}
