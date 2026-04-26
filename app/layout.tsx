@@ -1,5 +1,6 @@
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
+import DashboardLayout from "@/components/layout/DashboardLayout";
 
 export default function RootLayout({
   children,
@@ -10,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AuthProvider>
-          {children}
+          <DashboardLayout>{children}</DashboardLayout>
         </AuthProvider>
       </body>
     </html>

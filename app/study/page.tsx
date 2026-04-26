@@ -102,7 +102,7 @@ export default function StudyPage() {
             </div>
 
             {/* Title */}
-            <h2 className="text-sm font-semibold text-gray-900">
+            <h2 className="text-sm font-semibold text-gray-300">
               {item.title}
             </h2>
 

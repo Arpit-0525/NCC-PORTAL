@@ -1,11 +1,8 @@
 "use client";
 
-import DashboardLayout from "@/components/layout/DashboardLayout";
-
 export default function DashboardPage() {
   return (
-    <DashboardLayout>
-      <div className="p-6 space-y-8">
+    <div className="p-6 space-y-8">
 
         {/* Header */}
         <div>
@@ -124,7 +121,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-      </div>
-    </DashboardLayout>
+    </div>
   );
 }
