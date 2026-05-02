@@ -1,36 +1,174 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 NCC Portal — Company Management System
 
-## Getting Started
+A modern, role-based web application designed to manage NCC (National Cadet Corps) company operations efficiently.
 
-First, run the development server:
+Built with a **production-grade frontend architecture**, this system centralizes cadet data, attendance tracking, study materials, events, and internal records into a single platform.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📌 Overview
+
+The NCC Portal is designed for:
+
+* 📋 Managing cadet records
+* 📊 Tracking attendance and activities
+* 📚 Organizing study materials
+* 📅 Scheduling events
+* 🖼️ Maintaining gallery records
+
+The system follows a **role-based access model**:
+
+* **Admin** → Full control
+* **Cadet** → View-only access
+
+---
+
+## ✨ Features
+
+### 🧑‍✈️ Cadet Management
+
+* Store detailed cadet information
+* Mask sensitive data (Aadhaar, bank details)
+* Profile-based navigation
+
+### 📊 Activities & Attendance
+
+* Create and manage activities
+* Mark attendance dynamically
+* Visual attendance tracking with progress bars
+
+### 📚 Study Module
+
+* Upload and categorize materials
+* Search + filter functionality
+* File preview (PDF) + download support
+
+### 📅 Events Module
+
+* Track upcoming events
+* Clean card-based UI
+* Role-based creation access
+
+### 🖼️ Gallery
+
+* Grid-based image display
+* Organized event photos
+* Responsive layout
+
+---
+
+## 🔐 Role-Based Access Control
+
+| Feature               | Admin | Cadet |
+| --------------------- | ----- | ----- |
+| View Data             | ✅     | ✅     |
+| Add/Edit Cadets       | ✅     | ❌     |
+| Mark Attendance       | ✅     | ❌     |
+| Upload Study Material | ✅     | ❌     |
+| Create Events         | ✅     | ❌     |
+
+---
+
+## 🎨 UI/UX Highlights
+
+* Clean **SaaS-style dashboard design**
+* Consistent **design system (colors, spacing, typography)**
+* Responsive layout (mobile + desktop)
+* Interactive UI (hover states, transitions)
+* Modal-based workflows (upload, preview)
+
+---
+
+## ⚙️ Tech Stack
+
+* **Frontend:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **State Management:** React Context API
+* **Routing:** Next.js Navigation
+* **Data:** Mock JSON (frontend-only)
+
+---
+
+## 📁 Project Structure
+
+```
+/app
+  /dashboard
+  /cadets
+  /activities
+  /study
+  /events
+  /gallery
+
+/components
+  /layout
+  /study
+  /auth
+
+/context
+  AuthContext.tsx
+
+/data
+/types
+/lib
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧠 Key Concepts Implemented
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Role-based UI rendering
+* Route protection (frontend-level)
+* State persistence (localStorage)
+* Modular component architecture
+* Reusable UI components
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ⚠️ Security Note
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Sensitive data is currently **mocked and masked** on frontend
+* Backend encryption (AES) will be implemented in next phase
+* Current role system is **UI-level only (not secure)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🚧 Future Enhancements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* 🔐 Backend (Node.js + MongoDB)
+* 🔑 Authentication (JWT)
+* 🔒 Data encryption (Aadhaar & bank details)
+* 📊 Analytics dashboard (charts)
+* 📤 Export data (CSV/PDF)
+* ☁️ Deployment (Vercel + cloud DB)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🖥️ Getting Started
+
+```bash
+git clone https://github.com/your-username/ncc-portal.git
+cd ncc-portal
+npm install
+npm run dev
+```
+
+---
+
+## 📸 Screenshots
+
+*Add your UI screenshots here*
+
+---
+
+## 👨‍💻 Author
+
+**Arpit**
+Student Developer
+
+---
+
+## 📄 License
+
+This project is for educational and demonstration purposes.
