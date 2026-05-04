@@ -61,7 +61,7 @@ export default function HomePage() {
           ))}
         </Swiper>
 
-        {/* Overlay */}
+        {/* OVERLAY */}
         <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-4">
           <h1 className="text-white text-4xl md:text-5xl font-bold">
             National Cadet Corps
@@ -75,34 +75,10 @@ export default function HomePage() {
 
       </div>
 
-      {/* STATS */}
-      <div className="grid grid-cols-2 md:grid-cols-4 text-center py-8 bg-gray-100">
-
-        <div>
-          <h2 className="text-xl font-bold text-red-600">365094</h2>
-          <p className="text-sm text-gray-600">Cadets Registered</p>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-bold text-red-600">221464</h2>
-          <p className="text-sm text-gray-600">Activities Published</p>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-bold text-red-600">778920</h2>
-          <p className="text-sm text-gray-600">Contributions</p>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-bold text-blue-600">55,07,184</h2>
-          <p className="text-sm text-gray-600">Visitors</p>
-        </div>
-
-      </div>
-
       {/* CADET'S CORNER */}
       <section className="py-16 bg-white">
 
+        {/* Heading */}
         <div className="text-center mb-10">
           <div className="flex justify-center items-center gap-2">
             <div className="w-2 h-6 bg-blue-600"></div>
@@ -118,11 +94,14 @@ export default function HomePage() {
           </p>
         </div>
 
+        {/* GRID */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4">
 
           {categories.map((cat, i) => (
-            <div key={i} className="text-center group cursor-pointer">
-
+            <div
+              key={i}
+              className="text-center group cursor-pointer"
+            >
               <div className="overflow-hidden rounded-lg">
                 <img
                   src={cat.img}
@@ -133,7 +112,6 @@ export default function HomePage() {
               <p className="mt-3 font-semibold text-gray-900">
                 {cat.title}
               </p>
-
             </div>
           ))}
 
