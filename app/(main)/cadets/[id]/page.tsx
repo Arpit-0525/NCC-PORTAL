@@ -1,19 +1,26 @@
 "use client";
 
+import { useParams } from "next/navigation";
 import { cadets } from "@/data/cadets";
 import { useAuth } from "@/context/AuthContext";
+import PerformanceChart from "@/components/cadets/PerformanceChart";
 
-export default function CadetProfile({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function CadetProfile() {
+  const params = useParams();
+  const id = params.id as string;
+
   const { user } = useAuth();
-  const isAdmin = user.role === "admin";
+  const isAdmin = user?.role === "admin";
 
-  const cadet = cadets.find((c) => c.id === params.id);
+  const cadet = cadets.find((c) => c.id === id);
 
-  if (!cadet) return <div className="p-6">Cadet not found</div>;
+  if (!cadet) {
+    return (
+      <div className="p-6 text-gray-600">
+        Cadet not found
+      </div>
+    );
+  }
 
   return (
     <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
@@ -70,6 +77,11 @@ export default function CadetProfile({
             </div>
           </div>
         )}
+
+        {/* PERFORMANCE */}
+        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm md:col-span-2">
+          <PerformanceChart data={cadet.performance || []} />
+        </div>
 
       </div>
 

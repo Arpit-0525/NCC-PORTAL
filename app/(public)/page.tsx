@@ -16,14 +16,13 @@ export default function HomePage() {
   ];
 
   const categories = [
-    { title: "Sports", img: "/images/sports.jpg" },
-    { title: "National Camps", img: "/images/camps.jpg" },
-    { title: "Achievements", img: "/images/achievements.jpg" },
-    { title: "Training", img: "/images/training.jpg" },
-    { title: "Social Activities", img: "/images/social.jpg" },
-    { title: "Adventure", img: "/images/adventure.jpg" },
-  ];
-
+  { title: "Sports", slug: "sports", img: "/images/sports.jpg" },
+  { title: "National Camps", slug: "camps", img: "/images/camps.jpg" },
+  { title: "Achievements", slug: "achievements", img: "/images/achievements.jpg" },
+  { title: "Training", slug: "training", img: "/images/training.jpg" },
+  { title: "Social Activities", slug: "social", img: "/images/social.jpg" },
+  { title: "Adventure", slug: "adventure", img: "/images/adventure.jpg" },
+];
   return (
     <div className="bg-white">
 
@@ -100,6 +99,7 @@ export default function HomePage() {
           {categories.map((cat, i) => (
             <div
               key={i}
+              onClick={() => router.push(`/corner/${cat.slug}`)}
               className="text-center group cursor-pointer"
             >
               <div className="overflow-hidden rounded-lg">

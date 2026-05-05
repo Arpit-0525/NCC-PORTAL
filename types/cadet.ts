@@ -19,4 +19,14 @@ export type Cadet = {
   // Metadata
   rank?: string;
   joinedAt: string;
+
+  performance: PerformanceEntry[];
 };
+
+export interface PerformanceEntry {
+  month: string;     // ✅ THIS MUST EXIST
+  drill: number;
+  physical: number;
+  theory: number;
+  social: number;
+}
