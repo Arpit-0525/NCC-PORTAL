@@ -1,110 +1,191 @@
 # 🚀 NCC Portal — Company Management System
 
-A modern, role-based web application designed to manage NCC (National Cadet Corps) company operations efficiently.
+A modern, role-based NCC (National Cadet Corps) management platform built to streamline company-level operations including cadet management, attendance tracking, study materials, events, analytics, and internal records.
 
-Built with a **production-grade frontend architecture**, this system centralizes cadet data, attendance tracking, study materials, events, and internal records into a single platform.
+The project is designed with a scalable frontend architecture using Next.js App Router and follows a modular SaaS-style UI approach.
 
 ---
 
-## 📌 Overview
+# 📌 Overview
 
-The NCC Portal is designed for:
+The NCC Portal centralizes core NCC workflows into a single platform:
 
-* 📋 Managing cadet records
-* 📊 Tracking attendance and activities
-* 📚 Organizing study materials
-* 📅 Scheduling events
-* 🖼️ Maintaining gallery records
+- 🧑‍✈️ Cadet management
+- 📊 Attendance & activity tracking
+- 📚 Study material organization
+- 📅 Event management
+- 🖼️ Gallery management
+- 📈 Cadet performance analytics
 
 The system follows a **role-based access model**:
 
-* **Admin** → Full control
-* **Cadet** → View-only access
+| Role | Access |
+|------|------|
+| Admin | Full access |
+| Cadet | Restricted / view-only access |
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-### 🧑‍✈️ Cadet Management
+## 🏠 Public Homepage
 
-* Store detailed cadet information
-* Mask sensitive data (Aadhaar, bank details)
-* Profile-based navigation
-
-### 📊 Activities & Attendance
-
-* Create and manage activities
-* Mark attendance dynamically
-* Visual attendance tracking with progress bars
-
-### 📚 Study Module
-
-* Upload and categorize materials
-* Search + filter functionality
-* File preview (PDF) + download support
-
-### 📅 Events Module
-
-* Track upcoming events
-* Clean card-based UI
-* Role-based creation access
-
-### 🖼️ Gallery
-
-* Grid-based image display
-* Organized event photos
-* Responsive layout
+- NCC-inspired landing page
+- Full-screen hero carousel
+- Animated image transitions
+- Dedicated “Cadet’s Corner” sections:
+  - Sports
+  - National Camps
+  - Achievements
+  - Training
+  - Social Activities
+  - Adventure
+- Dynamic section pages with detailed galleries
 
 ---
 
-## 🔐 Role-Based Access Control
+## 🧑‍✈️ Cadet Management
 
-| Feature               | Admin | Cadet |
-| --------------------- | ----- | ----- |
-| View Data             | ✅     | ✅     |
-| Add/Edit Cadets       | ✅     | ❌     |
-| Mark Attendance       | ✅     | ❌     |
-| Upload Study Material | ✅     | ❌     |
-| Create Events         | ✅     | ❌     |
+- Store detailed cadet records
+- Profile-based navigation
+- Sensitive data masking
+- Admin-only sensitive information access
+- Individual cadet profile pages
 
----
-
-## 🎨 UI/UX Highlights
-
-* Clean **SaaS-style dashboard design**
-* Consistent **design system (colors, spacing, typography)**
-* Responsive layout (mobile + desktop)
-* Interactive UI (hover states, transitions)
-* Modal-based workflows (upload, preview)
+### Stored Information
+- Name
+- Parent details
+- Contact numbers
+- Blood group
+- Aadhaar (masked)
+- Bank details (masked)
 
 ---
 
-## ⚙️ Tech Stack
+## 📈 Cadet Performance Analytics
 
-* **Frontend:** Next.js (App Router)
-* **Language:** TypeScript
-* **Styling:** Tailwind CSS
-* **State Management:** React Context API
-* **Routing:** Next.js Navigation
-* **Data:** Mock JSON (frontend-only)
+Each cadet profile includes an analytics dashboard with performance graphs for:
+
+- Drill
+- Physical training
+- Theory
+- Social interaction
+
+Built using interactive charts for performance visualization and improvement tracking.
 
 ---
 
-## 📁 Project Structure
+## 📊 Activities & Attendance
 
-```
+- Create activities/events
+- Attendance management
+- Dynamic attendance tracking
+- Attendance progress visualization
+- Clean activity cards UI
+
+---
+
+## 📚 Study Module
+
+- Upload study materials
+- Category-based organization
+- Search & filtering
+- File preview support
+- Download support
+- Role-based upload restrictions
+
+---
+
+## 📅 Events Module
+
+- Upcoming events display
+- Responsive card-based layout
+- Event scheduling UI
+- Admin-only management access
+
+---
+
+## 🖼️ Gallery
+
+- Event-based image organization
+- Responsive image grid
+- Hover animations
+- Modern gallery layout
+
+---
+
+# 🔐 Role-Based Access Control
+
+| Feature | Admin | Cadet |
+|---|---|---|
+| View Dashboard | ✅ | ✅ |
+| View Cadets | ✅ | ✅ |
+| View Sensitive Data | ✅ | ❌ |
+| Add/Edit Cadets | ✅ | ❌ |
+| Mark Attendance | ✅ | ❌ |
+| Upload Study Material | ✅ | ❌ |
+| Create Events | ✅ | ❌ |
+| Access Analytics | ✅ | Limited |
+
+---
+
+# 🎨 UI/UX Highlights
+
+- Premium SaaS-style dashboard
+- Fixed sidebar + sticky navbar
+- Responsive design (mobile + desktop)
+- Modular component architecture
+- Interactive animations & transitions
+- Modal-based workflows
+- Full-width modern landing page
+- Military-inspired UI styling
+
+---
+
+# ⚙️ Tech Stack
+
+## Frontend
+- Next.js (App Router)
+- React
+- TypeScript
+
+## Styling
+- Tailwind CSS
+
+## State Management
+- React Context API
+
+## Charts & UI Libraries
+- Recharts
+- Swiper.js
+
+## Data Layer
+- Mock TypeScript/JSON data
+
+---
+
+# 📁 Project Structure
+
+```bash
 /app
-  /dashboard
-  /cadets
-  /activities
-  /study
-  /events
-  /gallery
+  /(public)
+    page.tsx
+    /corner/[category]
+
+  /(main)
+    layout.tsx
+    /dashboard
+    /cadets
+    /activities
+    /study
+    /events
+    /gallery
 
 /components
   /layout
+  /cadets
   /study
-  /auth
+  /gallery
 
 /context
   AuthContext.tsx
@@ -112,63 +193,122 @@ The system follows a **role-based access model**:
 /data
 /types
 /lib
+/public
 ```
 
 ---
 
-## 🧠 Key Concepts Implemented
+# 🧠 Key Concepts Implemented
 
-* Role-based UI rendering
-* Route protection (frontend-level)
-* State persistence (localStorage)
-* Modular component architecture
-* Reusable UI components
-
----
-
-## ⚠️ Security Note
-
-* Sensitive data is currently **mocked and masked** on frontend
-* Backend encryption (AES) will be implemented in next phase
-* Current role system is **UI-level only (not secure)**
+- Role-based UI rendering
+- Frontend route protection
+- Persistent role management (localStorage)
+- Dynamic routing
+- Modular architecture
+- Reusable components
+- Interactive analytics dashboard
+- Responsive layouts
+- Dynamic content pages
 
 ---
 
-## 🚧 Future Enhancements
+# 🔐 Security Considerations
 
-* 🔐 Backend (Node.js + MongoDB)
-* 🔑 Authentication (JWT)
-* 🔒 Data encryption (Aadhaar & bank details)
-* 📊 Analytics dashboard (charts)
-* 📤 Export data (CSV/PDF)
-* ☁️ Deployment (Vercel + cloud DB)
+Current implementation is frontend-only and uses mocked data.
+
+Sensitive information:
+- Aadhaar numbers
+- Bank details
+
+Planned backend security measures:
+- AES encryption
+- Secure authentication
+- JWT-based authorization
+- Backend RBAC
+- Secure exports
+
+> ⚠️ Current role protection is UI-level only and not production secure.
 
 ---
 
-## 🖥️ Getting Started
+# 🚧 Future Enhancements
+
+## Backend & Security
+- Node.js + Express backend
+- MongoDB/PostgreSQL integration
+- JWT authentication
+- AES encryption
+- Secure APIs
+
+## Analytics
+- Overall performance scoring
+- Cadet ranking system
+- Leaderboards
+- Performance grading
+
+## Features
+- CSV/PDF export
+- Notifications system
+- Real attendance records
+- Cloud deployment
+- AI-assisted analytics
+
+---
+
+# 🖥️ Getting Started
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/your-username/ncc-portal.git
+```
+
+## Navigate to Project
+
+```bash
 cd ncc-portal
+```
+
+## Install Dependencies
+
+```bash
 npm install
+```
+
+## Start Development Server
+
+```bash
 npm run dev
+```
+
+Open in browser:
+
+```bash
+http://localhost:3000
 ```
 
 ---
 
-## 📸 Screenshots
+# 📸 Screenshots
 
-*Add your UI screenshots here*
+Add project screenshots here:
+
+- Homepage
+- Dashboard
+- Cadet Analytics
+- Study Module
+- Gallery
+- Events
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
-**Arpit**
+## Arpit
 Student Developer
 
 ---
 
-## 📄 License
+# 📄 License
 
-This project is for educational and demonstration purposes.
+This project is intended for educational, academic, and portfolio purposes.
