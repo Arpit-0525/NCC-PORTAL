@@ -82,6 +82,48 @@ export default function CadetProfile() {
         <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm md:col-span-2">
           <PerformanceChart data={cadet.performance || []} />
         </div>
+        {/* OVERALL PERFORMANCE */}
+        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm md:col-span-2">
+
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+            Overall Evaluation
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+            <div className="bg-blue-50 rounded-xl p-4">
+              <p className="text-sm text-gray-500">
+                Overall Score
+              </p>
+
+              <h3 className="text-3xl font-bold text-blue-700 mt-2">
+                {cadet.overallScore}
+              </h3>
+            </div>
+
+            <div className="bg-green-50 rounded-xl p-4">
+              <p className="text-sm text-gray-500">
+                Grade
+              </p>
+
+              <h3 className="text-3xl font-bold text-green-700 mt-2">
+                {cadet.grade}
+              </h3>
+            </div>
+
+            <div className="bg-purple-50 rounded-xl p-4">
+              <p className="text-sm text-gray-500">
+                Social Points
+              </p>
+
+              <h3 className="text-3xl font-bold text-purple-700 mt-2">
+                {cadet.socialPoints}
+              </h3>
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 

@@ -20,11 +20,15 @@ export type Cadet = {
   rank?: string;
   joinedAt: string;
 
+  overallScore: number;
+  grade: string;
+  socialPoints: number;
+
   performance: PerformanceEntry[];
 };
 
 export interface PerformanceEntry {
-  month: string;     // ✅ THIS MUST EXIST
+  month: string;
   drill: number;
   physical: number;
   theory: number;

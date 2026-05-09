@@ -10,6 +10,7 @@ const navItems = [
   { name: "Study", href: "/study" },
   { name: "Events", href: "/events" },
   { name: "Gallery", href: "/gallery" },
+  { name: "Performance",href: "/performance"},
 ];
 
 export default function Sidebar() {
@@ -39,10 +40,9 @@ export default function Sidebar() {
               key={item.name}
               href={item.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all
-                ${
-                  isActive
-                    ? "bg-blue-50 text-blue-600"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                ${isActive
+                  ? "bg-blue-50 text-blue-600"
+                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                 }
               `}
             >
