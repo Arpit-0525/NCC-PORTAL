@@ -304,7 +304,7 @@ Add project screenshots here:
 
 # 👨‍💻 Author
 
-## Arpit Sangwan
+## Arpit
 Student Developer
 
 ---
